@@ -5,6 +5,12 @@ import "@/styles/globals.css";
 export const metadata = {
   title: "Promptopia",
   description: "Discover & Share AI Prompts",
+  icons: {
+    icon: {
+      url: "/assets/icons/logo.ico",
+      type: "image/ico",
+    },
+  },
 };
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
