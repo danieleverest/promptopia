@@ -11,11 +11,11 @@ export type FormType = {
 };
 
 export type ProfileType = {
-  name: string;
+  name: string | null;
   desc: string;
   data: any;
-  handleEdit: (e: any) => void;
-  handleDelete: (e: any) => void;
+  handleEdit?: (e: any) => void;
+  handleDelete?: (e: any) => void;
 };
 
 export type PostType = {

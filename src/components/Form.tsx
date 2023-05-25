@@ -1,6 +1,5 @@
 import { FormType } from "@/types/custom-types";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }: FormType) => {
   return (
