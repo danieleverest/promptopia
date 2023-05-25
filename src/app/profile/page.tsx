@@ -4,10 +4,11 @@ import { useRouter } from "next/navigation";
 
 import Profile from "@/components/Profile";
 import { useEffect, useState } from "react";
+import { PostType } from "@/types/custom-types";
 
 const MyProfile = () => {
   const { data: session } = useSession();
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
   const router = useRouter();
   useEffect(() => {
     const fetchPosts = async () => {
@@ -17,20 +18,20 @@ const MyProfile = () => {
       setPosts(data);
     };
     if (session?.user?.id) fetchPosts();
-  }, []);
+  }, [session?.user?.id]);
 
-  const handleEdit = (post) => {
+  const handleEdit = (post: PostType) => {
     router.push(`/update-prompt?id=${post._id}`);
   };
 
-  const handleDelete = async (post) => {
+  const handleDelete = async (post: PostType) => {
     const hasConfirmed = confirm(
       "Are you sure you want to delete this prompt?"
     );
 
     if (hasConfirmed) {
       try {
-        await fetch(`/api/prompt/${post._id.toString()}`, {
+        await fetch(`/api/prompt/${post._id?.toString()}`, {
           method: "DELETE",
         });
 

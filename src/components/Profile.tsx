@@ -1,4 +1,4 @@
-import { ProfileType } from "@/types/custom-types";
+import { PostType, ProfileType } from "@/types/custom-types";
 import PromptCard from "./PromptCard";
 
 const Profile = ({
@@ -15,7 +15,7 @@ const Profile = ({
       </h1>
       <p className="desc text-left">{desc}</p>
       <div className="mt-10 prompt_layout">
-        {data.map((post) => (
+        {data.map((post: PostType) => (
           <PromptCard
             key={post._id}
             post={post}

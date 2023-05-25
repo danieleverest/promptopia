@@ -2,17 +2,18 @@
 
 import { ChangeEvent, useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
+import { PostType, PromptCardListType } from "@/types/custom-types";
 
-const PromptCardList = ({ data, handleTagClick }) => (
+const PromptCardList = ({ data, handleTagClick }: PromptCardListType) => (
   <div className="mt-16 prompt_layout">
-    {data.map((post) => (
+    {data.map((post: PostType) => (
       <PromptCard key={post._id} post={post} handleTagClick={handleTagClick} />
     ))}
   </div>
 );
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PostType[]>([]);
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     throw new Error("Function not implemented.");
   };
