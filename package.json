@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "static": "next build && next export"
+    "static": "next build && next export",
+    "predeploy": "next build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@capacitor/android": "^5.0.4",
@@ -31,6 +33,6 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@capacitor/cli": "^5.0.4"
+    "@capacitor/cli": "^5.7.1"
   }
 }
